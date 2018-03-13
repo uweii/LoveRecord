@@ -3,7 +3,7 @@
 <h3>截图</h3>
  <img src="/src/mainset.png" width = "300" height = "500" alt="主界面" align=left />
  <img src="/src/date.png" width = "300" height = "500" alt="设置日期" align=left />
-  <img src="/src/desktop.png" width = "300" height = "500" alt="桌面效果" align=left />
+  <img src="/src/desktop.png" width = "300" height = "500" alt="桌面效果" align=center />
 <br>
 ---
 用到知识：service, broadcastreceiver, widget布局，图片解析处理，DatePicker,TimePicker<br>
