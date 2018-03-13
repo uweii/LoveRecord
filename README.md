@@ -5,14 +5,15 @@
  <img src="/src/date.png" width = "300" height = "500" alt="设置日期" align=left />
   <img src="/src/desktop.png" width = "300" height = "500" alt="桌面效果" align=center />
 <br>
---------
+***<br>
 用到知识：service, broadcastreceiver, widget布局，图片解析处理，DatePicker,TimePicker<br>
 Sharepreference,等
---------
+--------<br>
 使用widget写的一个简单计时插件。<br>
 点击设置图片button后，实际是启动打开图库的intent。startActivityForResult。拿到选择的图片对应的uri后<br>
 便将图片显示这个ImageView中，其中涉及到压缩图片，因为图片内存可能太大，然后导致oom。<br>
-------
+------<br>
+<code>
  private Bitmap getSmallBitmap(String path){<br>
         BitmapFactory.Options options = new BitmapFactory.Options();<br>
         options.inJustDecodeBounds = true;<br>
@@ -25,7 +26,7 @@ Sharepreference,等
         int scale = Math.max(Math.round(w/ww),Math.round(h/hh));<br>
         options.inSampleSize = scale;<br>
         return BitmapFactory.decodeFile(path,options);<br>
-    }<br>
+    }<br></code>
    返回一个较小的图片。<br>
    然后启动service用来计时更新。<br>
    注意<br>
