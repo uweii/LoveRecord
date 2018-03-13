@@ -6,27 +6,28 @@
   <img src="/src/desktop.png" width = "300" height = "500" alt="桌面效果" align=center />
 <br>
 使用widget写的一个简单计时插件。
-点击设置图片button后，实际是启动打开图库的intent。startActivityForResult。拿到选择的图片对应的uri后
-便将图片显示这个ImageView中，其中涉及到压缩图片，因为图片内存可能太大，然后导致oom。
- private Bitmap getSmallBitmap(String path){
-        BitmapFactory.Options options = new BitmapFactory.Options();
-        options.inJustDecodeBounds = true;
-        Bitmap bitmap = BitmapFactory.decodeFile(path,options);
-        float w = options.outWidth;
-        float h = options.outHeight;
-        options.inJustDecodeBounds = false;
-        float ww = 240f;
-        float hh = 400f;
-        int scale = Math.max(Math.round(w/ww),Math.round(h/hh));
-        options.inSampleSize = scale;
-        return BitmapFactory.decodeFile(path,options);
-    }
-   返回一个较小的图片。
-   然后启动service用来计时更新。
-   注意
-   @Override
-public int onStartCommand(Intent intent, int flags, int startId) {
-flags = START_STICKY; //防止因内存不足而销毁service，所以设置成START_STICKY，当因内存不足销毁后会自动启动
-return super.onStartCommand(intent, flags, startId);
+点击设置图片button后，实际是启动打开图库的intent。startActivityForResult。拿到选择的图片对应的uri后<br>
+便将图片显示这个ImageView中，其中涉及到压缩图片，因为图片内存可能太大，然后导致oom。<br>
+ private Bitmap getSmallBitmap(String path){<br>
+        BitmapFactory.Options options = new BitmapFactory.Options();<br>
+        options.inJustDecodeBounds = true;<br>
+        Bitmap bitmap = BitmapFactory.decodeFile(path,options);<br>
+        float w = options.outWidth;<br>
+        float h = options.outHeight;<br>
+        options.inJustDecodeBounds = false;<br>
+        float ww = 240f;<br>
+        float hh = 400f;<br>
+        int scale = Math.max(Math.round(w/ww),Math.round(h/hh));<br>
+        options.inSampleSize = scale;<br>
+        return BitmapFactory.decodeFile(path,options);<br>
+    }<br>
+   返回一个较小的图片。<br>
+   然后启动service用来计时更新。<br>
+   注意<br>
+   @Override<br>
+public int onStartCommand(Intent intent, int flags, int startId) {<br>
+flags = START_STICKY; //防止因内存不足而销毁service，所以设置成START_STICKY，当因内存不足销毁后会自动启动<br>
+return super.onStartCommand(intent, flags, startId);<br>
 }
 .
+CSDN地址  http://blog.csdn.net/dummyo/article/details/79334068
